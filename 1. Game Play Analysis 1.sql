@@ -48,7 +48,7 @@ Group by player_id
 -- SELECT
 -- FROM
 -- WHERE
--- HAVING
 -- GROUP BY
+-- HAVING
 -- ORDER BY
 -- LIMIT
