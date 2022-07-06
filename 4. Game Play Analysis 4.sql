@@ -54,3 +54,12 @@ select round(sum(t.s)/count(distinct t.player_id),2) as fraction
 from t
 
 -- alternate solution
+
+WITH T as
+(SELECT player_id, MIN(event_date) as event_start_date
+ FROM Activity
+ GROUP BY player_id)
+ 
+ SELECT (ROUND((COUNT(DISTINCT T.player_id))/(SELECT COUNT(distinct player_id) FROM Activity),2 )) as fraction
+ FROM T
+ JOIN Activity A ON T.player_id=A.player_id AND DATEDIFF(T.event_start_date, A.event_date) = -1
