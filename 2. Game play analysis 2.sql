@@ -40,13 +40,17 @@
 
 
 -- Solution
-With table1 as
-(
-   Select player_id, device_id,
-   Rank() OVER(partition by player_id
-               order by event_date) as rk
-   From Activity
-)
-Select t.player_id, t.device_id
-from table1 as t
-where t.rk=1
+SELECT player_id, device_id
+FROM Activity
+WHERE player_id, event_date IN (SELECT player_id, MIN(event_date) FROM Activity GROUP BY player_id)
+
+
+
+-- alternate solution
+WITH Table1 AS 
+(SELECT player_id, device_id,
+ RANK() OVER(PARTITION BY player_id ORDER BY event_date) AS rk
+ FROM Activity)
+ SELECT T1.player_id, T1.device_id
+ FROM Table1 AS t1
+ WHERE t1.rk=1
