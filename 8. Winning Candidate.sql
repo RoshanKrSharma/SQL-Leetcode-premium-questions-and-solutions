@@ -63,3 +63,13 @@ select t1.name
 from t1
 where t1.rk=1
 
+-- alternate solution
+select C.name
+from Candidate C
+join
+(select candidateId, count(*) as vote_count
+from Vote
+group by candidateId
+order by vote_count desc
+limit 1) V
+on C.id = V. candidateId
