@@ -34,3 +34,12 @@ from t1
 join employee e
 on t1.managerid = e.id
 where t1.total>=5
+
+-- alternate solution
+SELECT name
+FROM Employee
+WHERE id IN 
+(SELECT ManagerId 
+ FROM Employee 
+ GROUP BY ManagerId
+ HAVING COUNT(*)>=5)
