@@ -63,3 +63,15 @@ from
 rank() over(order by rate desc) as rk
 from t1) a
 where a.rk = 1
+
+alternateValte soltuion:
+
+select
+question_id as survey_log
+from
+SurveyLog
+group by
+question_id
+order by
+count answer_id) / sum if(action =
+limit 1
