@@ -66,7 +66,7 @@ order by count(s.dept_id) desc, dept_name
 
 alternate solution:
 
-select d.dept_name, count(studen_id) as student_number
+select d.dept_name, count(student_id) as student_number
 from student s
 right join department d
 on s.dept_id=d.dept_id
