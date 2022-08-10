@@ -1,0 +1,14 @@
+Table: SalesPerson
+| Column Name     | Type    |
+| sales id        | int     |
+| name            | varchar |
+| salary          | int     |
+| commission rate | int     | 
+| hire date       | date    |
+
+sales_id is the primary key
+n for this table.
+row of this table indicates
+name and the ID of a
+sperson alongside their
+ry, commission rate, and hire
