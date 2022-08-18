@@ -1,0 +1,12 @@
+-- See question in OneNote
+
+-- Solution
+select x, y, z,
+case 
+when x+y > z and x+z > y and  y+z > x  then 'Yes' 
+when x=y and y=z then 'Yes'
+else 'No'
+end as Triangle
+from triangle
+
+-- Alternate Solution
