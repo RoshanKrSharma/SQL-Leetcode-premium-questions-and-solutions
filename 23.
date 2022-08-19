@@ -1,7 +1,0 @@
-
-WITH T1 AS (
-SELECT follower, followee
-FROM Follow
-HAVING COUNT(follower)>1 and COUNt
-SELECT <2nd degree followe>,<no.of follower>
-FROM T1

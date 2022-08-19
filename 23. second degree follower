@@ -1,0 +1,13 @@
+-- See question in OneNote
+
+-- Solution
+select followee as follower, count(distinct(follower)) as num
+from follow
+where followee = any(select follower from follow)
+group by followee
+order by followee
+
+-- alternate solution
+
+-- question not understood(skipped for now) 
+-- L5 (37:00)
