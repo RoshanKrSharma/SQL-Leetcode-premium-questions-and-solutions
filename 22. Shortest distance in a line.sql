@@ -1,5 +1,13 @@
 -- see question in OneNote
 
-SELECT MIN(ABS(p1.x-p2.x))
-FROM Point p1
-JOIN Point p2 On p1.x <> p2.x
+-- Solution
+select min(abs(abs(a.x)-abs(a.next_closest))) as shortest
+from(
+select *,
+lead(x) over(order by x) as next_closest
+from point) a 
+
+-- alternate solution
+select min(abs(p1.x-p2.x)) as shortest
+from Point p1, Point p2
+where p1.x!=p2.x
