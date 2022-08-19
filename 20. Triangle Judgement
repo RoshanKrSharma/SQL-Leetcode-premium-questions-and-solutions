@@ -10,3 +10,8 @@ end as Triangle
 from triangle
 
 -- Alternate Solution
+select x,y,z,
+if(x+y>z and
+y+z>x and
+x+z>y, "Yes", "No") triangle
+from triangle
